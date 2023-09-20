@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  root "posts#index"
+  root 'posts#index'
+  get 'about' => 'pages#about'
 end
