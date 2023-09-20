@@ -6,10 +6,54 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <!-- Подключение Bootstrap стилей через CDN: https://getbootstrap.com/ -> Include via CDN ->  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   </head>
 
   <body>
-    <%= yield %>
+
+    <!-- Шапка -->
+    <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+      <div class="container">
+
+        <a class="navbar-brand" href="#">
+          SimpleblogItProger
+        </a>
+
+        <button class="navbar-toggler bg-warning" type="button" data-bs-toggle="collapse" data-bs-target="#content" aria-controls="content" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="content">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <%= link_to 'Main page', home_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item"> 
+              <%= link_to 'Add new post', new_post_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item"> 
+              <%= link_to 'About us', about_path, class: "nav-link" %>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+
+
+
+    <div class="container">
+      <%= yield %>
+    </div>
+    
+
+
+    <!-- Подключение Bootstrap js-скриптов через CDN: https://getbootstrap.com/ -> Include via CDN ->  -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
   </body>
 </html>
