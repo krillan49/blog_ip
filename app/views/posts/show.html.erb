@@ -2,3 +2,4 @@
 <p><%= @post.body %></p>
 <hr>
 <%= link_to "Редактировать", edit_post_path(@post), class: 'btn btn-warning' %>
+<%= button_to "Удалить", post_path(@post), method: :delete, class: 'btn btn-danger' %>
