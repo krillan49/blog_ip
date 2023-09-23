@@ -1,24 +1,31 @@
-# README
+# simpleblog(itproger)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+### учебный проект с [itproger](https://itproger.com/course/ruby-on-rails)
 
-* Ruby version
 
-* System dependencies
+* Ruby version 3.1.2p20
+* Rails version 7.0.7
 
-* Configuration
 
-* Database creation
+## Start project
 
-* Database initialization
+1. Install gems:
+```bash
+bundle install
+```
 
-* How to run the test suite
+2. Migrate:
+```bash
+rake db:migrate
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+3. Run RoR application:
+```bash
+rails s
+```
 
-* Deployment instructions
-
-* ...
+4. Open in your browser: 
+```bash
+http://localhost:3000/
+```
