@@ -1,4 +1,4 @@
-<h2>Edit post</h2>
+<h2 class="text-center mb-3">Edit post</h2>
 
 <%= form_for :post, url: post_path(@post), method: :patch do |f| %>
 
@@ -18,8 +18,8 @@
     <%= f.text_area :body, class: 'form-control' %>
   </p>
   
-  <p>
-    <%= f.submit class: 'btn btn-success' %>
+  <p class="text-center">
+    <%= f.submit class: 'btn btn-outline-success' %>
   </p>
   
 <% end %>

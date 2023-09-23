@@ -1,25 +1,15 @@
-<h2><%= @post.title %></h2>
-<p><%= @post.body %></p>
-
-<hr>
-
-<%= link_to "Редактировать", edit_post_path(@post), class: 'btn btn-warning' %>
-<%= button_to "Удалить", post_path(@post), method: :delete, class: 'btn btn-danger' %>
-
-<hr>
-
-<h2>Комментарии:</h2>
-<%= 'Пока еще нет комментариев' if @post.comments.empty? %>
-
-<% @post.comments.each do |comment| %>
-  <div class="alert alert-light">
-    <p><b><%= comment.username %></b>: <%= comment.body %></p>
+<h2 class="text-center mb-3"><%= @post.title %></h2>
+<div class="alert alert-light">
+  <p><%= @post.body %></p>
+  <div class="text-center">
+    <div class="btn-group" role="group">
+      <%= link_to "Изменить", edit_post_path(@post), class: 'btn btn-sm btn-outline-warning me-2' %>
+      <%= button_to "Удалить", post_path(@post), method: :delete, class: 'btn btn-sm btn-outline-danger' %>
+    </div>
   </div>
-<% end %>
+</div>
 
-<hr>
-
-<h2>Оставьте ваш комментарий</h2>
+<h5 class="text-center mt-5">Оставьте ваш комментарий:</h5>
 <%= form_for ([@post, @post.comments.build]) do |f| %>
   <p>
     Пользователь<br>
@@ -29,7 +19,18 @@
     Текст комментария<br>
     <%= f.text_area :body, class: 'form-control' %>
   </p> 
-  <p>
-    <%= f.submit 'Добавить комментарий', class: 'btn btn-success' %>
+  <p class="text-center">
+    <%= f.submit 'Добавить комментарий', class: 'btn btn-sm btn-outline-success' %>
   </p> 
+<% end %>
+
+
+<% @post.comments.reverse.each.with_index do |comment, i| %>
+  <div class="alert alert-light">
+    <% if i == 0 %>
+    <b>Тут будет ваш комментарий</b>
+    <% else %> 
+      <b><%= comment.username %></b>: <%= comment.body %> 
+    <% end %>
+  </div>
 <% end %>
